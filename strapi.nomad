@@ -15,7 +15,7 @@ job "strapi-single-tenant" {
       driver = "docker"
 
       config {
-        image = "dockerhub-username/strapi-single:latest"
+        image = "kanchidhyanasai/strapi-single:latest"
         ports = ["http"]
       }
 
