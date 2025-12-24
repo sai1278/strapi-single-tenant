@@ -4,15 +4,15 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy dependency files first
-COPY backend/package*.json ./
+COPY backend/package.json ./
 
-# Install dependencies (clean, reproducible)
-RUN npm ci
+# Install dependencies (no lock file)
+RUN npm install --no-audit --no-fund
 
 # Copy Strapi source
 COPY backend .
 
-# Build admin panel
+# Build Strapi admin
 RUN npm run build
 
 EXPOSE 1337
